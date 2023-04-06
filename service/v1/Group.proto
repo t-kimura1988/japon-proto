@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package group;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "pkg/grpc";
+
+
+enum PublishLevel {
+  ALL_USER_JOIN = 0;
+  EXCLUSIVE_USER_JOIN = 1;
+}
+
+service GroupService {
+  rpc GetGroupDetail(GetGroupDetailRequest) returns (GetGroupDetailResponse);
+  rpc CreateGroup(CreateGroupRequest) returns (google.protobuf.Empty);
+}
+
+message GetGroupDetailRequest {
+  int64 group_id = 1;
+}
+
+message GetGroupDetailResponse {
+
+}
+
+message CreateGroupRequest {
+
+  string group_name = 1;
+
+  PublishLevel publish_level = 2;
+
+}
+
