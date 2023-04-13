@@ -3,9 +3,10 @@ syntax = "proto3";
 package group;
 
 import "google/protobuf/empty.proto";
+import "messages/group/GetGroupDetailResponse.proto";
+import "messages/group/GetGroupDetailRequest.proto";
 
-option go_package = "pkg/grpc";
-
+option go_package = "github.com/t-kimura1988/japon-proto/pkg/grpc";
 
 enum PublishLevel {
   ALL_USER_JOIN = 0;
@@ -15,14 +16,6 @@ enum PublishLevel {
 service GroupService {
   rpc GetGroupDetail(GetGroupDetailRequest) returns (GetGroupDetailResponse);
   rpc CreateGroup(CreateGroupRequest) returns (google.protobuf.Empty);
-}
-
-message GetGroupDetailRequest {
-  int64 group_id = 1;
-}
-
-message GetGroupDetailResponse {
-
 }
 
 message CreateGroupRequest {

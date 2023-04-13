@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package group;
+
+option go_package = "github.com/t-kimura1988/japon-proto/pkg/grpc/messages/group";
+
+message GetGroupDetailRequest {
+  int64 group_id = 1;
+}
